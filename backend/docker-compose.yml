@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  postgres_service:
+    container_name: upwork-test-postgres
+    # command: postgres -e DEFAULT_CTYPE="en_US.UTF-8" -e DEFAULT_ENCODING="UTF8" -e DEFAULT_COLLATION="en_US.UTF-8" 
+    image: kartoza/postgis:latest
+    environment:
+      - PGDATA=postgres
+      - DEFAULT_CTYPE="en_US.UTF-8"
+      - DEFAULT_ENCODING="UTF8"
+      - DEFAULT_COLLATION="en_US.UTF-8"
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASS=fred
+      - POSTGRES_DBNAME=user-search
+    ports:
+      - 5432:5432
